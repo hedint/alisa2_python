@@ -72,7 +72,7 @@ def handle_dialog(res, req):
             if 'да' in req['request']['nlu']['tokens']:
                 # если пользователь согласен, то проверяем не отгадал ли он уже все города.
                 # По схеме можно увидеть, что здесь окажутся и пользователи, которые уже отгадывали города
-                if len(sessionStorage[user_id]['guessed_cities']) == 3:
+                if len(sessionStorage[user_id]['guessed_cities']) == len(cities):
                     # если все три города отгаданы, то заканчиваем игру
                     res['response']['text'] = 'Ты отгадал все города!'
                     res['end_session'] = True
